@@ -186,4 +186,4 @@ func _set_path_end_position(value):
 	path_end_position = value
 	if path_start_position != value:
 		_recalculate_path()
-
+#Practice Commit - Will Remove - Daniel
