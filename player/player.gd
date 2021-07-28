@@ -58,7 +58,7 @@ func move(delta):
 	if !ray.is_colliding(): # Check for collision before moving
 		percent_moved_to_next_tile += walk_speed * delta
 		if percent_moved_to_next_tile >= 1.0:
-			anim_player.play("move")
+			anim_player.play("idle")
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_moved_to_next_tile = 0.0
 			is_moving = false
@@ -66,6 +66,7 @@ func move(delta):
 			
 		else:
 			position = initial_position + (TILE_SIZE * input_direction * percent_moved_to_next_tile)
+			anim_player.play("move")
 	else:
 		if ray.get_collider().is_in_group("Chest"):
 			emit_signal("bumped_chest",ray.get_collider().name, input_direction)
